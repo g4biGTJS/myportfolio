@@ -3,7 +3,7 @@
 <head>
     <script>
         var path = window.location.pathname;
-        if (!path.endsWith('.html') && !path.endsWith('/')) {
+        if (path !== '/' && !path.endsWith('.html') && !path.endsWith('/')) {
             window.location.replace(path + '.html');
         }
     </script>
