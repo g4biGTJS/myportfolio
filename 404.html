@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var path = window.location.pathname;
+        if (!path.endsWith('.html') && !path.endsWith('/')) {
+            window.location.replace(path + '.html');
+        }
+    </script>
+</head>
+<body></body>
+</html>
