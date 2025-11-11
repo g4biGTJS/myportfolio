@@ -14,242 +14,248 @@
       '       '      '    )/       '        '         '                '    '     
                           '                                                       
 
-    Roblox Version: version-f6dd34ecac7b4642
+    Roblox Version: version-b7e223555d904550
 
 */
 
 namespace offsets {
     // ============================================================================
-    // CORE ENGINE POINTERS
+    // CORE ENGINE POINTERS & FFLAGS (Absolute Addresses)
     // ============================================================================
-    inline constexpr uintptr_t DataModelDeleterPointer      = 0x759FD20;
-    inline constexpr uintptr_t FakeDataModelPointer         = 0x759FD28;
-    inline constexpr uintptr_t JobsPointer                  = 0x755F8C0;
-    inline constexpr uintptr_t MouseSensitivity             = 0x7677810;
-    inline constexpr uintptr_t PlayerConfigurerPointer      = 0x757C588;
-    inline constexpr uintptr_t TaskSchedulerPointer         = 0x76DE128;
-    inline constexpr uintptr_t VisualEnginePointer          = 0x72FE710;
+    inline constexpr uintptr_t FakeDataModelPointer         = 0x76b46b8;
+    inline constexpr uintptr_t TaskSchedulerPointer         = 0x77f3158;
+    inline constexpr uintptr_t VisualEnginePointer          = 0x743bdd0;
+    inline constexpr uintptr_t PlayerConfigurerPointer      = 0x7690a98;
+    inline constexpr uintptr_t MouseSensitivityPointer      = 0x778c890;
+    inline constexpr uintptr_t TaskSchedulerTargetFps       = 0x6e54ccc;
+    inline constexpr uintptr_t DebugDisableTimeoutDisconnect = 0x6542420;
 
     // ============================================================================
     // INSTANCE STRUCTURE
     // ============================================================================
-    inline constexpr uintptr_t Children                     = 0x70;
+    inline constexpr uintptr_t ChildrenStart                = 0x68;
     inline constexpr uintptr_t ChildrenEnd                  = 0x8;
     inline constexpr uintptr_t ClassDescriptor              = 0x18;
-    inline constexpr uintptr_t ClassDescriptorToClassName   = 0x8;
-    inline constexpr uintptr_t Deleter                      = 0x10;
-    inline constexpr uintptr_t DeleterBack                  = 0x18;
-    inline constexpr uintptr_t DisplayName                  = 0x130;
-    inline constexpr uintptr_t InstanceCapabilities         = 0x588;
-    inline constexpr uintptr_t Name                         = 0x90;
-    inline constexpr uintptr_t NameSize                     = 0x10;
-    inline constexpr uintptr_t OnDemandInstance             = 0x38;
+    inline constexpr uintptr_t ClassName                    = 0x8; // Relative to ClassDescriptor
+    inline constexpr uintptr_t ClassBase                    = 0xc98;
+    inline constexpr uintptr_t Name                         = 0xa8;
     inline constexpr uintptr_t Parent                       = 0x60;
-    inline constexpr uintptr_t TagList                      = 0x110;
+    inline constexpr uintptr_t StringLength                 = 0x10; // For internal strings
 
     // ============================================================================
     // ATTRIBUTES
     // ============================================================================
+    inline constexpr uintptr_t AttributeContainer           = 0x40;
+    inline constexpr uintptr_t AttributeList                = 0x18; // Relative to AttributeContainer
     inline constexpr uintptr_t AttributeToNext              = 0x58;
     inline constexpr uintptr_t AttributeToValue             = 0x18;
-    inline constexpr uintptr_t InstanceAttributePointer1    = 0x40;
-    inline constexpr uintptr_t InstanceAttributePointer2    = 0x18;
 
     // ============================================================================
     // DATA MODEL & RENDERING
     // ============================================================================
-    inline constexpr uintptr_t DataModelPrimitiveCount      = 0x430;
-    inline constexpr uintptr_t DataModelToRenderView1       = 0x1D0;
-    inline constexpr uintptr_t DataModelToRenderView2       = 0x8;
-    inline constexpr uintptr_t DataModelToRenderView3       = 0x28;
-    inline constexpr uintptr_t FakeDataModelToDataModel     = 0x1C0;
-    inline constexpr uintptr_t RenderJobToDataModel         = 0x1B0;
+    inline constexpr uintptr_t PrimitiveCount               = 0x428;
+    inline constexpr uintptr_t ScriptContext                = 0x3e0;
+    inline constexpr uintptr_t ServerIP                     = 0x5d0;
+    inline constexpr uintptr_t GameLoaded                   = 0x5e8;
+    inline constexpr uintptr_t FakeDataModelToDataModel     = 0x1c0;
+    inline constexpr uintptr_t VisualEngine                 = 0x10; // Relative to RenderView
+    inline constexpr uintptr_t VisualEngineToDataModel1     = 0x700;
+    inline constexpr uintptr_t VisualEngineToDataModel2     = 0x1c0;
     inline constexpr uintptr_t RenderJobToFakeDataModel     = 0x38;
     inline constexpr uintptr_t RenderJobToRenderView        = 0x218;
-    inline constexpr uintptr_t VisualEngine                 = 0x10;
-    inline constexpr uintptr_t VisualEngineToDataModel1     = 0x700;
-    inline constexpr uintptr_t VisualEngineToDataModel2     = 0x1C0;
-    inline constexpr uintptr_t viewmatrix                   = 0x4B0;
+    inline constexpr uintptr_t ViewMatrix                   = 0x4b0;
+    inline constexpr uintptr_t DeviceD3D11                  = 0x8; // Relative to RenderView
 
     // ============================================================================
     // CAMERA
     // ============================================================================
-    inline constexpr uintptr_t Camera                       = 0x410;
-    inline constexpr uintptr_t CameraMaxZoomDistance        = 0x2F0;
-    inline constexpr uintptr_t CameraMinZoomDistance        = 0x2F4;
-    inline constexpr uintptr_t CameraMode                   = 0x2F8;
-    inline constexpr uintptr_t CameraPos                    = 0x11C;
-    inline constexpr uintptr_t CameraRotation               = 0xF8;
-    inline constexpr uintptr_t CameraSubject                = 0xE8;
-    inline constexpr uintptr_t CameraType                   = 0x158;
-    inline constexpr uintptr_t FOV                          = 0x160;
+    inline constexpr uintptr_t CameraSubject                = 0xe0;
+    inline constexpr uintptr_t CameraType                   = 0x150;
+    inline constexpr uintptr_t FieldOfView                  = 0x158;
+    inline constexpr uintptr_t CameraPosition               = 0x114;
+    inline constexpr uintptr_t CameraRotation               = 0xf0;
 
     // ============================================================================
     // PLAYER
     // ============================================================================
-    inline constexpr uintptr_t AutoJumpEnabled              = 0x1DB;
-    inline constexpr uintptr_t CharacterAppearanceId        = 0x298;
-    inline constexpr uintptr_t LocalPlayer                  = 0x130;
-    inline constexpr uintptr_t PlayerMouse                  = 0xCC8;
-    inline constexpr uintptr_t Team                         = 0x270;
-    inline constexpr uintptr_t UserId                       = 0x2A8;
+    inline constexpr uintptr_t LocalPlayer                  = 0x128; // Relative to Players service
+    inline constexpr uintptr_t UserId                       = 0x290;
+    inline constexpr uintptr_t DisplayName                  = 0x128;
+    inline constexpr uintptr_t MaxZoomDistance              = 0x2e8;
+    inline constexpr uintptr_t MinZoomDistance              = 0x2ec;
+    inline constexpr uintptr_t CameraMode                   = 0x2f0;
+    inline constexpr uintptr_t Team                         = 0x268;
+    inline constexpr uintptr_t ModelInstance                = 0x358;
+    inline constexpr uintptr_t PlayerMouse                  = 0xcc8;
+    inline constexpr uintptr_t Country                      = 0x108;
+    inline constexpr uintptr_t Gender                       = 0xe58;
 
     // ============================================================================
     // HUMANOID
     // ============================================================================
-    inline constexpr uintptr_t EvaluateStateMachine         = 0x1DD;
-    inline constexpr uintptr_t Health                       = 0x194;
-    inline constexpr uintptr_t HealthDisplayDistance        = 0x318;
-    inline constexpr uintptr_t HipHeight                    = 0x1A0;
-    inline constexpr uintptr_t HumanoidDisplayName          = 0xD0;
+    inline constexpr uintptr_t Health                       = 0x18c;
+    inline constexpr uintptr_t MaxHealth                    = 0x1ac;
+    inline constexpr uintptr_t Walkspeed                    = 0x1cc;
+    inline constexpr uintptr_t WalkspeedCheck               = 0x3a0;
+    inline constexpr uintptr_t JumpPower                    = 0x1a8;
+    inline constexpr uintptr_t JumpHeight                   = 0x1a4;
+    inline constexpr uintptr_t Jump                       = 0x1d5; // Boolean
+    inline constexpr uintptr_t AutoRotate                   = 0x1d1;
+    inline constexpr uintptr_t HipHeight                    = 0x198;
+    inline constexpr uintptr_t RigType                      = 0x1c0;
     inline constexpr uintptr_t HumanoidState                = 0x858;
-    inline constexpr uintptr_t HumanoidStateId              = 0x20;
-    inline constexpr uintptr_t JumpPower                    = 0x1B0;
-    inline constexpr uintptr_t MaxHealth                    = 0x1C4;
-    inline constexpr uintptr_t MaxSlopeAngle                = 0x1B8;
-    inline constexpr uintptr_t MoveDirection                = 0x158;
-    inline constexpr uintptr_t NameDisplayDistance          = 0x324;
-    inline constexpr uintptr_t RigType                      = 0x1C8;
-    inline constexpr uintptr_t Sit                          = 0x1DC;
-    inline constexpr uintptr_t WalkSpeed                    = 0x1D4;
-    inline constexpr uintptr_t WalkSpeedCheck               = 0x3A0;
+    inline constexpr uintptr_t HumanoidStateID              = 0x20;
+    inline constexpr uintptr_t FloorMaterial                = 0x188;
+    inline constexpr uintptr_t MaxSlopeAngle                = 0x1b0;
 
     // ============================================================================
     // PARTS & PHYSICS
     // ============================================================================
-    inline constexpr uintptr_t Anchored                     = 0x28D;
-    inline constexpr uintptr_t AnchoredMask                 = 0x2;
-    inline constexpr uintptr_t CanCollide                   = 0x28D;
-    inline constexpr uintptr_t CanCollideMask               = 0x8;
-    inline constexpr uintptr_t CanTouch                     = 0x28D;
-    inline constexpr uintptr_t CanTouchMask                 = 0x10;
-    inline constexpr uintptr_t CFrame                       = 0xF8;
-    inline constexpr uintptr_t MaterialType                 = 0x0;
-    inline constexpr uintptr_t PartSize                     = 0x1D0;
-    inline constexpr uintptr_t Position                     = 0x11C;
-    inline constexpr uintptr_t Primitive                    = 0x148;
-    inline constexpr uintptr_t PrimitiveValidateValue       = 0x6;
-    inline constexpr uintptr_t PrimitivesPointer1           = 0x398;
-    inline constexpr uintptr_t PrimitivesPointer2           = 0x210;
-    inline constexpr uintptr_t Rotation                     = 0x100;
-    inline constexpr uintptr_t Transparency                 = 0xF0;
-    inline constexpr uintptr_t Velocity                     = 0x128;
+    inline constexpr uintptr_t Position                     = 0x11c;
+    inline constexpr uintptr_t Rotation                     = 0xf8;
+    inline constexpr uintptr_t AssemblyLinearVelocity       = 0x128;
+    inline constexpr uintptr_t AssemblyAngularVelocity      = 0x134;
+    inline constexpr uintptr_t Size                         = 0x1d0;
+    inline constexpr uintptr_t Transparency                 = 0xe8;
+    inline constexpr uintptr_t Color3                       = 0x18c;
+    inline constexpr uintptr_t Material                     = 0x268;
+    inline constexpr uintptr_t Shape                        = 0x1a9;
+    inline constexpr uintptr_t Primitive                    = 0x140;
+    inline constexpr uintptr_t ValidatePrimitive            = 0x6; // Relative to Primitive
+    inline constexpr uintptr_t PrimitiveOwner               = 0x210;
+    inline constexpr uintptr_t PrimitiveFlags               = 0x294; // Contains mask bits
+    inline constexpr uintptr_t Anchored                     = 0x2; // Mask Bit
+    inline constexpr uintptr_t CanCollide                   = 0x8; // Mask Bit
+    inline constexpr uintptr_t CanTouch                     = 0x10; // Mask Bit
 
     // ============================================================================
     // MESH & VISUALS
     // ============================================================================
-    inline constexpr uintptr_t Adornee                      = 0xD0;
-    inline constexpr uintptr_t BeamBrightness               = 0x190;
-    inline constexpr uintptr_t BeamColor                    = 0x120;
-    inline constexpr uintptr_t BeamLightEmission            = 0x19C;
-    inline constexpr uintptr_t BeamLightInfuence            = 0x1A0;
-    inline constexpr uintptr_t DecalTexture                 = 0x198;
-    inline constexpr uintptr_t MeshPartColor3               = 0x1CC;
-    inline constexpr uintptr_t MeshPartTexture              = 0x310;
+    inline constexpr uintptr_t MeshId                       = 0x2d8; // MeshPart
+    inline constexpr uintptr_t Texture                      = 0x308; // MeshPart
+    inline constexpr uintptr_t Decal_Texture                = 0x190; // Decal/Texture
+    inline constexpr uintptr_t SpecialMeshId                = 0x100; // SpecialMesh
+    inline constexpr uintptr_t SpecialMeshScale             = 0x14c; // SpecialMesh
 
     // ============================================================================
     // LIGHTING
     // ============================================================================
-    inline constexpr uintptr_t ClockTime                    = 0x1B8;
-    inline constexpr uintptr_t FogColor                     = 0xFC;
-    inline constexpr uintptr_t FogEnd                       = 0x134;
-    inline constexpr uintptr_t FogStart                     = 0x138;
-    inline constexpr uintptr_t MoonTextureId                = 0xD8;
-    inline constexpr uintptr_t OutdoorAmbient               = 0x108;
-    inline constexpr uintptr_t SunTextureId                 = 0x1F0;
+    inline constexpr uintptr_t Ambient                      = 0xd0;
+    inline constexpr uintptr_t OutdoorAmbient               = 0x100;
+    inline constexpr uintptr_t ColorShift_Top               = 0xdc;
+    inline constexpr uintptr_t ColorShift_Bottom            = 0xe8;
+    inline constexpr uintptr_t Brightness                   = 0x118;
+    inline constexpr uintptr_t ExposureCompensation         = 0x124;
+    inline constexpr uintptr_t ClockTime                    = 0x1b0;
+    inline constexpr uintptr_t FogColor                     = 0xf4;
+    inline constexpr uintptr_t FogStart                     = 0x130;
+    inline constexpr uintptr_t FogEnd                       = 0x12c;
+    inline constexpr uintptr_t GeographicLatitude           = 0x188;
 
     // ============================================================================
     // SKYBOX
     // ============================================================================
-    inline constexpr uintptr_t SkyboxBk                     = 0x100;
-    inline constexpr uintptr_t SkyboxDn                     = 0x128;
-    inline constexpr uintptr_t SkyboxFt                     = 0x150;
-    inline constexpr uintptr_t SkyboxLf                     = 0x178;
-    inline constexpr uintptr_t SkyboxRt                     = 0x1A0;
-    inline constexpr uintptr_t SkyboxUp                     = 0x1C8;
-    inline constexpr uintptr_t StarCount                    = 0x220;
+    inline constexpr uintptr_t MoonTextureId                = 0xd0;
+    inline constexpr uintptr_t SunTextureId                 = 0x1e8;
+    inline constexpr uintptr_t StarCount                    = 0x218;
+    inline constexpr uintptr_t MoonAngularSize              = 0x214;
+    inline constexpr uintptr_t SunAngularSize               = 0x20c;
+    inline constexpr uintptr_t SkyboxOrientation            = 0x208;
+    inline constexpr uintptr_t SkyboxBk                     = 0xf8;
+    inline constexpr uintptr_t SkyboxDn                     = 0x120;
+    inline constexpr uintptr_t SkyboxFt                     = 0x148;
+    inline constexpr uintptr_t SkyboxLf                     = 0x170;
+    inline constexpr uintptr_t SkyboxRt                     = 0x198;
+    inline constexpr uintptr_t SkyboxUp                     = 0x1c0;
 
     // ============================================================================
     // UI ELEMENTS
     // ============================================================================
-    inline constexpr uintptr_t Dimensions                   = 0x720;
-    inline constexpr uintptr_t FramePositionOffsetX         = 0x524;
-    inline constexpr uintptr_t FramePositionOffsetY         = 0x52C;
-    inline constexpr uintptr_t FramePositionX               = 0x520;
-    inline constexpr uintptr_t FramePositionY               = 0x528;
-    inline constexpr uintptr_t FrameRotation                = 0x188;
-    inline constexpr uintptr_t FrameSizeOffsetX             = 0x548;
-    inline constexpr uintptr_t FrameSizeOffsetY             = 0x54C;
-    inline constexpr uintptr_t FrameSizeX                   = 0x540;
-    inline constexpr uintptr_t FrameSizeY                   = 0x544;
-    inline constexpr uintptr_t InsetMaxX                    = 0x100;
-    inline constexpr uintptr_t InsetMaxY                    = 0x104;
-    inline constexpr uintptr_t InsetMinX                    = 0xF8;
-    inline constexpr uintptr_t InsetMinY                    = 0xFC;
-    inline constexpr uintptr_t TextLabelText                = 0xAE0;
-    inline constexpr uintptr_t TextLabelVisible             = 0x5B9;
-    inline constexpr uintptr_t ViewportSize                 = 0x2E8;
+    inline constexpr uintptr_t Gui_Position                 = 0x518;
+    inline constexpr uintptr_t Gui_Size                     = 0x538;
+    inline constexpr uintptr_t Gui_Rotation                 = 0x180;
+    inline constexpr uintptr_t Gui_Visible                  = 0x5b1;
+    inline constexpr uintptr_t ScreenGui_Enabled            = 0x4cc;
+    inline constexpr uintptr_t BackgroundColor3             = 0x548;
+    inline constexpr uintptr_t BorderColor3                 = 0x554;
+    inline constexpr uintptr_t Image                        = 0xa18;
+    inline constexpr uintptr_t LayoutOrder                  = 0x584;
+    inline constexpr uintptr_t Text                         = 0xe38;
+    inline constexpr uintptr_t TextColor3                   = 0xee8;
+    inline constexpr uintptr_t RichText                     = 0xad8;
+    inline constexpr uintptr_t Dimensions                   = 0x720; // VisualEngine/ViewportFrame
 
     // ============================================================================
     // INPUT & MOUSE
     // ============================================================================
-    inline constexpr uintptr_t InputObject                  = 0x100;
-    inline constexpr uintptr_t MousePosition                = 0xEC;
+    inline constexpr uintptr_t InputObject                  = 0xf8; // MouseService
+    inline constexpr uintptr_t MousePosition                = 0xe4; // MouseService
+    inline constexpr uintptr_t MouseIcon                    = 0xd8; // PlayerMouse/ClickDetector
+    inline constexpr uintptr_t PlayerMouseWorkspace         = 0x160; // PlayerMouse
 
     // ============================================================================
     // SCRIPTS
     // ============================================================================
-    inline constexpr uintptr_t LocalScriptByteCode          = 0x1A8;
-    inline constexpr uintptr_t LocalScriptBytecodePointer   = 0x10;
-    inline constexpr uintptr_t LocalScriptHash              = 0x1B8;
-    inline constexpr uintptr_t ModuleScriptByteCode         = 0x150;
-    inline constexpr uintptr_t ModuleScriptBytecodePointer  = 0x10;
-    inline constexpr uintptr_t ModuleScriptHash             = 0x168;
-    inline constexpr uintptr_t RequireBypass                = 0x8E0;
-    inline constexpr uintptr_t RunContext                   = 0x148;
-    inline constexpr uintptr_t ScriptContext                = 0x3E0;
+    inline constexpr uintptr_t LocalScriptByteCode          = 0x1a0;
+    inline constexpr uintptr_t LocalScriptHash              = 0x1b0;
+    inline constexpr uintptr_t ModuleScriptByteCode         = 0x148;
+    inline constexpr uintptr_t ModuleScriptHash             = 0x160;
+    inline constexpr uintptr_t ByteCodePointer              = 0x10; // Relative to ByteCode object
+    inline constexpr uintptr_t ByteCodeSize                 = 0x20; // Relative to ByteCode object
+    inline constexpr uintptr_t IsCoreScript                 = 0x180;
+    inline constexpr uintptr_t ModuleFlags                  = 0x17c;
+    inline constexpr uintptr_t RequireLock                  = 0x914;
 
     // ============================================================================
     // JOBS & SCHEDULER
     // ============================================================================
-    inline constexpr uintptr_t JobEnd                       = 0x1D8;
-    inline constexpr uintptr_t JobId                        = 0x138;
-    inline constexpr uintptr_t JobStart                     = 0x1D0;
-    inline constexpr uintptr_t Job_Name                     = 0x18;
-    inline constexpr uintptr_t TaskSchedulerMaxFPS          = 0x1B0;
+    inline constexpr uintptr_t JobName                      = 0x18;
+    inline constexpr uintptr_t JobStart                     = 0x1d0;
+    inline constexpr uintptr_t JobEnd                       = 0x1d8;
+    inline constexpr uintptr_t TaskSchedulerMaxFPS          = 0x1b0;
+    inline constexpr uintptr_t HeartbeatFPS                 = 0xb8; // RunService
+    inline constexpr uintptr_t HeartbeatTask                = 0xe0; // RunService
 
     // ============================================================================
     // GAME INFO
     // ============================================================================
-    inline constexpr uintptr_t CreatorId                    = 0x188;
-    inline constexpr uintptr_t GameId                       = 0x190;
-    inline constexpr uintptr_t GameLoaded                   = 0x5F0;
-    inline constexpr uintptr_t PlaceId                      = 0x198;
+    inline constexpr uintptr_t CreatorId                    = 0x180; // DataModel
+    inline constexpr uintptr_t GameId                       = 0x188; // DataModel
+    inline constexpr uintptr_t JobId                        = 0x130; // DataModel
+    inline constexpr uintptr_t PlaceId                      = 0x190; // DataModel
+    inline constexpr uintptr_t PlaceVersion                 = 0x1ac; // DataModel
 
     // ============================================================================
     // WORKSPACE
     // ============================================================================
-    inline constexpr uintptr_t Gravity                      = 0x958;
-    inline constexpr uintptr_t Workspace                    = 0x178;
-    inline constexpr uintptr_t WorkspaceToWorld             = 0x398;
+    inline constexpr uintptr_t Workspace                    = 0x170; // Relative to DataModel
+    inline constexpr uintptr_t Gravity                      = 0x1d8;
+    inline constexpr uintptr_t ReadOnlyGravity              = 0x960;
+    inline constexpr uintptr_t GravityContainer             = 0x390;
+    inline constexpr uintptr_t PrimitivesPointer1           = 0x390;
+    inline constexpr uintptr_t PrimitivesPointer2           = 0x238;
+    inline constexpr uintptr_t CurrentCamera                = 0x418;
+    inline constexpr uintptr_t DistributedGameTime          = 0x438;
 
     // ============================================================================
     // MISC
     // ============================================================================
-    inline constexpr uintptr_t AnimationId                  = 0xD0;
-    inline constexpr uintptr_t ClickDetectorMaxActivationDistance = 0x100;
-    inline constexpr uintptr_t ForceNewAFKDuration          = 0x1F8;
-    inline constexpr uintptr_t ModelInstance                = 0x360;
-    inline constexpr uintptr_t Ping                         = 0xC8;
-    inline constexpr uintptr_t ProximityPromptActionText    = 0xD0;
-    inline constexpr uintptr_t ProximityPromptEnabled       = 0x156;
-    inline constexpr uintptr_t ProximityPromptGamepadKeyCode = 0x13C;
-    inline constexpr uintptr_t ProximityPromptHoldDuraction = 0x140;
-    inline constexpr uintptr_t ProximityPromptMaxActivationDistance = 0x148;
-    inline constexpr uintptr_t ProximityPromptMaxObjectText = 0xF0;
-    inline constexpr uintptr_t SoundId                      = 0xE0;
-    inline constexpr uintptr_t StringLength                 = 0x10;
-    inline constexpr uintptr_t TeamColor                    = 0xD0;
-    inline constexpr uintptr_t Tool_Grip_Position           = 0x454;
-    inline constexpr uintptr_t Value                        = 0xD0;
+    inline constexpr uintptr_t AnimationId                  = 0xc8; // Animation
+    inline constexpr uintptr_t IsPlaying                    = 0xed; // AnimationTrack
+    inline constexpr uintptr_t Looped                       = 0xec; // AnimationTrack
+    inline constexpr uintptr_t Speed                        = 0xdc; // AnimationTrack
+    inline constexpr uintptr_t Value                        = 0xc8; // ValueBase/StatsItem (also Team::BrickColor)
+    inline constexpr uintptr_t PrimaryPart                  = 0x240; // Model
+    inline constexpr uintptr_t ModelScale                   = 0x14c; // Model
+    inline constexpr uintptr_t Adornee                      = 0x100; // BillboardGui
+    inline constexpr uintptr_t ClickDetectorMaxActivationDistance = 0xf8;
+    inline constexpr uintptr_t ProximityPromptActionText    = 0xc8;
+    inline constexpr uintptr_t ProximityPromptObjectText    = 0xe8;
+    inline constexpr uintptr_t ProximityPromptGamepadKeyCode = 0x134;
+    inline constexpr uintptr_t ProximityPromptHoldDuration  = 0x138;
+    inline constexpr uintptr_t ProximityPromptKeyCode       = 0x13c;
+    inline constexpr uintptr_t ProximityPromptMaxActivationDistance = 0x140;
+    inline constexpr uintptr_t ProximityPromptEnabled       = 0x14e;
+    inline constexpr uintptr_t ProximityPromptRequiresLineOfSight = 0x14f;
+    inline constexpr uintptr_t OverrideDuration             = 0x1f8; // PlayerConfigurer
 }
