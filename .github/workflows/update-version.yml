@@ -1,10 +1,8 @@
 name: Update Roblox Version
-
 on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
-
 jobs:
   update-version:
     runs-on: ubuntu-latest
@@ -16,22 +14,28 @@ jobs:
       - name: Create versions directory
         run: mkdir -p versions
         
-      - name: Fetch Roblox version
+      - name: Fetch Roblox Windows version
         run: |
           VERSION=$(curl -s https://clientsettings.roblox.com/v2/client-version/WindowsPlayer | jq -r '.clientVersionUpload')
-          echo "Current version: $VERSION"
+          echo "Current Windows version: $VERSION"
           echo "$VERSION" > versions/windows.txt
+          
+      - name: Fetch Roblox Mac version
+        run: |
+          VERSION=$(curl -s https://clientsettings.roblox.com/v2/client-version/MacPlayer | jq -r '.clientVersionUpload')
+          echo "Current Mac version: $VERSION"
+          echo "$VERSION" > versions/mac.txt
           
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --quiet versions/windows.txt || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --quiet versions/ || echo "changed=true" >> $GITHUB_OUTPUT
           
       - name: Commit and push if changed
         if: steps.check_changes.outputs.changed == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add versions/windows.txt
+          git add versions/windows.txt versions/mac.txt
           git commit -m "Update Roblox version [automated]"
           git push
